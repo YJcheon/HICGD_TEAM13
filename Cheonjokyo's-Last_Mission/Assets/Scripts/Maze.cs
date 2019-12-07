@@ -6,6 +6,9 @@ public class Maze : MonoBehaviour {
 
 	public IntVector2 size;
 
+    public HyperCore coreprefab;
+    public HyperCore coreInstance;
+
 	public MazeCell cellPrefab;
 
     public Item itemPrefab;
@@ -52,13 +55,12 @@ public class Maze : MonoBehaviour {
 			DoNextGenerationStep(activeCells);
 		}
 		for (int i = 0; i < rooms.Count; i++) {
-			rooms[i].Hide();
-            // itemInstance = Instantiate(itemprefab, new Vector3(0, 0, 0), Quaternion.identity) as Item;
-           
+            rooms[i].Hide();
             ItemInstance = Instantiate(itemPrefab, new Vector3(rooms[i].cells[0].coordinates.x - size.x * 0.5f + 0.5f, 0, rooms[i].cells[0].coordinates.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
-            Debug.Log(rooms[i].cells[0].coordinates.x);
-            Debug.Log(rooms[i].cells[0].coordinates.z);
         }
+
+        IntVector2 cor= RandomCoordinates;
+        coreInstance = Instantiate(coreprefab, new Vector3(cor.x - size.x * 0.5f + 0.5f, 0, cor.z - size.z * 0.5f + 0.5f),Quaternion.identity) as HyperCore;
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells) {
