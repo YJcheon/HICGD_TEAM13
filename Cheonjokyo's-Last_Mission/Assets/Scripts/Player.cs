@@ -6,7 +6,16 @@ public class Player : MonoBehaviour {
 
 	private MazeDirection currentDirection;
 
-	public void SetLocation (MazeCell cell) {
+    private int healthPoint;
+
+    public int initialHealthPoint;
+
+    public void Start()
+    {
+        healthPoint = initialHealthPoint;
+    }
+
+    public void SetLocation (MazeCell cell) {
 		if (currentCell != null) {
 			currentCell.OnPlayerExited();
 		}
@@ -27,7 +36,8 @@ public class Player : MonoBehaviour {
 		currentDirection = direction;
 	}
 
-	private void Update () {
+
+    private void Update () {
 		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
 			Move(currentDirection);
 		}
@@ -47,4 +57,16 @@ public class Player : MonoBehaviour {
 			Look(currentDirection.GetNextClockwise());
 		}
 	}
+
+    public void decreaseHealthPoint(int point)
+    {
+        healthPoint -= point;
+    }
+
+    public void increaseHealthPoint(int point)
+    {
+        healthPoint += point;
+    }
+
+    public int HP { get { return healthPoint; } }
 }
