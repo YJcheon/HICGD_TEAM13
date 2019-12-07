@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Maze : MonoBehaviour {
-    
 
 	public IntVector2 size;
 
 	public MazeCell cellPrefab;
 
-	public float generationStepDelay;
+    public Item itemPrefab;
+    public Item ItemInstance;
+
+    public float generationStepDelay;
 
 	public MazePassage passagePrefab;
 
@@ -51,7 +53,12 @@ public class Maze : MonoBehaviour {
 		}
 		for (int i = 0; i < rooms.Count; i++) {
 			rooms[i].Hide();
-		}
+            // itemInstance = Instantiate(itemprefab, new Vector3(0, 0, 0), Quaternion.identity) as Item;
+           
+            ItemInstance = Instantiate(itemPrefab, new Vector3(rooms[i].cells[0].coordinates.x - size.x * 0.5f + 0.5f, 0, rooms[i].cells[0].coordinates.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
+            Debug.Log(rooms[i].cells[0].coordinates.x);
+            Debug.Log(rooms[i].cells[0].coordinates.z);
+        }
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells) {
@@ -87,7 +94,11 @@ public class Maze : MonoBehaviour {
 			CreateWall(currentCell, null, direction);
 		}
 	}
-
+   
+    //private Item createItem(IntVector2 coordinates) {
+        //tem newItem = Instantiate(itemPrefab) as Item;
+  //  }
+   
 	private MazeCell CreateCell (IntVector2 coordinates) {
 		MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
 		cells[coordinates.x, coordinates.z] = newCell;
@@ -124,7 +135,7 @@ public class Maze : MonoBehaviour {
 			Destroy(roomToAssimilate);
 		}
 	}
-  
+
 	private void CreateWall (MazeCell cell, MazeCell otherCell, MazeDirection direction) {
 		MazeWall wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as MazeWall;
 		wall.Initialize(cell, otherCell, direction);
