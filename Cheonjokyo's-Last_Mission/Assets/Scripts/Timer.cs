@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         restTime -= Time.deltaTime;
-        Debug.Log("timer: " + restTime + " seconds");
+        //Debug.Log("timer: " + restTime + " seconds");
     }
 
     public void increase(float seconds)
