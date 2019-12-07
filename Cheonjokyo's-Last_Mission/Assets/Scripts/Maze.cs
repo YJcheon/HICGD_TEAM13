@@ -8,8 +8,7 @@ public class Maze : MonoBehaviour {
 
 	public MazeCell cellPrefab;
 
-    public Item itemPrefab;
-    public Item ItemInstance;
+    public Item[] itemPrefabs;
 
     public float generationStepDelay;
 
@@ -51,13 +50,14 @@ public class Maze : MonoBehaviour {
 			yield return delay;
 			DoNextGenerationStep(activeCells);
 		}
-		for (int i = 0; i < rooms.Count; i++) {
+
+        for (int i = 0; i < rooms.Count; i++) {
 			rooms[i].Hide();
             // itemInstance = Instantiate(itemprefab, new Vector3(0, 0, 0), Quaternion.identity) as Item;
-           
-            ItemInstance = Instantiate(itemPrefab, new Vector3(rooms[i].cells[0].coordinates.x - size.x * 0.5f + 0.5f, 0, rooms[i].cells[0].coordinates.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
-            Debug.Log(rooms[i].cells[0].coordinates.x);
-            Debug.Log(rooms[i].cells[0].coordinates.z);
+            int itemIndex = Random.Range(0, 3);
+            Item itemPrefab = itemPrefabs[itemIndex];
+            Vector3 itemPosition = new Vector3(rooms[i].cells[0].coordinates.x - size.x * 0.5f + 0.5f, 0, rooms[i].cells[0].coordinates.z - size.z * 0.5f + 0.5f);
+            Item item = Instantiate(itemPrefab, itemPosition, Quaternion.identity) as Item;
         }
 	}
 

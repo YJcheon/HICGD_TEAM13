@@ -44,11 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 5
+    z: 5
   cellPrefab: {fileID: 11400000, guid: 8cc5710f710a24360a566370d7049cf8, type: 3}
-  itemPrefab: {fileID: -2794701412227872770, guid: 5b258978727e55a40a41c06303a07e83,
-    type: 3}
+  itemPrefabs:
+  - {fileID: 5390025390273861885, guid: 6fccdf250f24dda4693b88859647d33c, type: 3}
+  - {fileID: 528531692103911561, guid: 433c8a2525cf7fa4f992fccd2422e65f, type: 3}
+  - {fileID: 3905739047576303314, guid: 33f486a38833f6b45af6ec135ec19902, type: 3}
   generationStepDelay: 0.01
   passagePrefab: {fileID: 11400000, guid: 4db582300649e4e399ee4a2665f9e8e6, type: 3}
   doorPrefab: {fileID: 11400002, guid: ddd2858d08f2e45f3b4b479b51caf822, type: 3}
