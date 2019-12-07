@@ -17,23 +17,12 @@ public class ItemTrigger : MonoBehaviour
         {
             Debug.Log("Player 아이템 획득.");
             // TODO: 아이템 행동 구현 연결
-            if (this.gameObject.name == "Purification")
+            Item item = this.gameObject.GetComponent<Item>();
+            if (item != null)
             {
-                StartCoroutine(doPurification());
+                Debug.Log(item);
+                StartCoroutine(item.effects(manager));
             }
-            else if (this.gameObject.name == "Bandage")
-            {
-                StartCoroutine(doBandage());
-            }
-            else if (this.gameObject.name == "Hint")
-            {
-                StartCoroutine(doHint(5.0f));
-            }
-            else
-            {
-                Debug.Log("Nothing to execute!");
-            }
-
         }
     }
 
@@ -41,8 +30,8 @@ public class ItemTrigger : MonoBehaviour
     {
         Debug.Log("Purification 획득.");
         manager.timer.increase(5.0f);
+        yield return new WaitForSeconds(0.01f);
         Destroy(this.gameObject);
-        yield return null;
     }
 
     private IEnumerator doBandage()
@@ -50,8 +39,8 @@ public class ItemTrigger : MonoBehaviour
         Debug.Log("Bandage 획득.");
         manager.player.increaseHealthPoint(3);
         Debug.Log(manager.player.HP);
+        yield return new WaitForSeconds(0.01f);
         Destroy(this.gameObject);
-        yield return null;
     }
 
     private IEnumerator doHint(float seconds)
@@ -62,6 +51,7 @@ public class ItemTrigger : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         Camera.main.clearFlags = CameraClearFlags.Depth;
         Camera.main.rect = new Rect(0f, 0f, 0.5f, 0.5f);
+        yield return new WaitForSeconds(0.01f);
         Debug.Log("Finish. ShowTopView");
         Destroy(this.gameObject);
     }
