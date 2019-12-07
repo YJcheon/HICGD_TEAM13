@@ -33,4 +33,6 @@ public class Timer : MonoBehaviour
     {
         restTime -= seconds;
     }
+
+    public double RestTime { get { return restTime; } }
 }
