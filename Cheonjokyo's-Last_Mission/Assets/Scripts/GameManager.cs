@@ -7,12 +7,18 @@ public class GameManager : MonoBehaviour {
 
 	public Player playerPrefab;
 
+    public Timer timerPrefab;
+
 	private Maze mazeInstance;
 
-	private Player playerInstance;
+    private Player playerInstance;
 
-	private void Start () {
-		StartCoroutine(BeginGame());
+    private Timer timerInstance;
+
+
+    private void Start () {
+        Time.timeScale = 1.0f;
+        StartCoroutine(BeginGame());
 	}
 	
 	private void Update () {
@@ -28,8 +34,9 @@ public class GameManager : MonoBehaviour {
 		yield return StartCoroutine(mazeInstance.Generate());
 		playerInstance = Instantiate(playerPrefab) as Player;
 		playerInstance.SetLocation(mazeInstance.GetCell(mazeInstance.RandomCoordinates));
+        timerInstance = Instantiate(timerPrefab) as Timer;
 		Camera.main.clearFlags = CameraClearFlags.Depth;
-		Camera.main.rect = new Rect(0f, 0f, 0.5f, 0.5f);
+        Camera.main.rect = new Rect(0f, 0f, 0.5f, 0.5f);
 	}
 
 	private void RestartGame () {
@@ -40,4 +47,14 @@ public class GameManager : MonoBehaviour {
 		}
 		StartCoroutine(BeginGame());
 	}
+
+    public Timer timer
+    {
+        get { return timerInstance; }
+    }
+
+    public Player player
+    {
+        get { return playerInstance; }
+    }
 }
