@@ -15,8 +15,7 @@ public class Maze : MonoBehaviour {
 
     public MazeCell cellPrefab;
 
-    public Item itemPrefab;
-    public Item ItemInstance;
+    public Item[] itemPrefabs;
 
     public float generationStepDelay;
 
