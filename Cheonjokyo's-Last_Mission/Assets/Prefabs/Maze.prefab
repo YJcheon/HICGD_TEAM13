@@ -44,8 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 20
-    z: 20
+    x: 10
+    z: 10
+  coreprefab: {fileID: 3079808594771938596, guid: f9044eb7e8c6cef49a8175edb4f8a4f5,
+    type: 3}
+  coreInstance: {fileID: 0}
+  alienprefab: {fileID: 7135371670919506384, guid: 53cb76f9317134146b4aa7aa87577ca9,
+    type: 3}
+  alienInstance1: {fileID: 0}
+  alienInstance2: {fileID: 0}
   cellPrefab: {fileID: 11400000, guid: 8cc5710f710a24360a566370d7049cf8, type: 3}
   itemPrefabs:
   - {fileID: 5390025390273861887, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}

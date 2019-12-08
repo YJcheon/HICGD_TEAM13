@@ -10,7 +10,7 @@ public class Maze : MonoBehaviour {
     public HyperCore coreInstance;
 
     public Alien alienprefab;
-    public Alien alienInstance1 ;
+    public Alien alienInstance1;
     public Alien alienInstance2;
 
     public MazeCell cellPrefab;
@@ -82,8 +82,10 @@ public class Maze : MonoBehaviour {
             checkcoord.x = x;
             checkcoord.z = z;
             checkcoordlist.Add(checkcoord);
-            ItemInstance = Instantiate(itemPrefab, new Vector3(x - size.x * 0.5f + 0.5f, 0, z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
-            
+
+            int itemIndex = Random.Range(0, itemPrefabs.Length);
+            Item itemPrefab = itemPrefabs[itemIndex];
+            Item itemInstance = Instantiate(itemPrefab, new Vector3(x - size.x * 0.5f + 0.5f, 0, z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
         }
 
         IntVector2 aliencor;
