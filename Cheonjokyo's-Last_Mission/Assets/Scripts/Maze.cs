@@ -103,7 +103,7 @@ public class Maze : MonoBehaviour {
         }
         alienInstance1 = Instantiate(alienprefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
         alienInstance1.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
-    
+        alienInstance1.SetSize(size.x, size.z);
 
         while (true)
         {
@@ -120,7 +120,7 @@ public class Maze : MonoBehaviour {
         }
         alienInstance2 = Instantiate(alienprefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
         alienInstance2.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
-
+        alienInstance2.SetSize(size.x, size.z);
         IntVector2 cor_result;
         while (true) {
             IntVector2 cor = RandomCoordinates;
