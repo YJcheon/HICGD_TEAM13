@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3651189650429470619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c2d625244fc3d488012dd81e97f841, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d93a005df65477459de676b0cdbb8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 0
+  initialTime: 20

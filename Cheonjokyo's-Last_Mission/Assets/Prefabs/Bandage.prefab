@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5390025390273861872}
   - component: {fileID: 5390025390273861873}
   - component: {fileID: 5390025390273861886}
-  - component: {fileID: 5390025390273861887}
   - component: {fileID: 5390025390273861884}
   - component: {fileID: 5390025390273861885}
+  - component: {fileID: 5390025390273861887}
   - component: {fileID: -8285367868379699315}
   m_Layer: 0
   m_Name: Bandage
@@ -96,18 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5390025390273861887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5390025390273861882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a25da9921e0c49428c4de29f85a221f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5390025390273861884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,7 +121,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5390025390273861882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056fac334f7019a44a42e3aaf3fe7a59, type: 3}
+  m_Script: {fileID: 11500000, guid: 050d56628682b9b4b8f53a350a542fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5390025390273861887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390025390273861882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46c1e6f68ac13745b12d20bff6118c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &-8285367868379699315

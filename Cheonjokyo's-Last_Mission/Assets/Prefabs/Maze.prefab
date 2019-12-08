@@ -48,9 +48,9 @@ MonoBehaviour:
     z: 20
   cellPrefab: {fileID: 11400000, guid: 8cc5710f710a24360a566370d7049cf8, type: 3}
   itemPrefabs:
-  - {fileID: 5390025390273861885, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}
+  - {fileID: 5390025390273861887, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}
   - {fileID: 528531692103911561, guid: f80dfe196ca69064094964d2f8127200, type: 3}
-  - {fileID: 3905739047576303314, guid: 2b8009d20b4e6da4dabd63833280051f, type: 3}
+  - {fileID: 3905739047576303312, guid: 2b8009d20b4e6da4dabd63833280051f, type: 3}
   generationStepDelay: 0.01
   passagePrefab: {fileID: 11400000, guid: 4db582300649e4e399ee4a2665f9e8e6, type: 3}
   doorPrefab: {fileID: 11400002, guid: ddd2858d08f2e45f3b4b479b51caf822, type: 3}
