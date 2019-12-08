@@ -21,6 +21,7 @@ public class ItemTrigger : MonoBehaviour
             if (item != null)
             {
                 Debug.Log(item);
+                Debug.Log(col.gameObject.name);
                 StartCoroutine(item.effects(manager));
             }
         }

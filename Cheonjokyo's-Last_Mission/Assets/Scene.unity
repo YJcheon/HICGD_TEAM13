@@ -842,6 +842,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 11400000, guid: 4c6e2fb6da7fd4f5aa5c8463ebb46e79, type: 3}
   timerPrefab: {fileID: 3651189650429470618, guid: 51d03d261152ec6479904cfbededda16,
     type: 3}
+  canvas: {fileID: 2100170060}
 --- !u!4 &1464554643
 Transform:
   m_ObjectHideFlags: 0

@@ -107,6 +107,7 @@ public class Maze : MonoBehaviour {
 
             Alien alienInstance = Instantiate(alienPrefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
             alienInstance.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
+            alienInstance.SetSize(size.x, size.z);
             alienInstances.Add(alienInstance);
         }
 
@@ -119,7 +120,6 @@ public class Maze : MonoBehaviour {
                 break;
             }
         }
-
         coreInstance = Instantiate(coreprefab, new Vector3(cor_result.x - size.x * 0.5f + 0.5f, 0, cor_result.z - size.z * 0.5f + 0.5f),Quaternion.identity) as HyperCore;
 	}
 

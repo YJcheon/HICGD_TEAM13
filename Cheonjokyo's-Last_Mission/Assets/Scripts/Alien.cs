@@ -42,9 +42,7 @@ public class Alien : MonoBehaviour
     }
     private void Move()
     {
-       ;
         int r_rand = Random.Range(0,4);
-        //int r_rand = r.Next(4);
         
         float cx = this.x;
         float cz = this.z;
@@ -52,7 +50,7 @@ public class Alien : MonoBehaviour
         float nx = cx + x_move[r_rand];
         float nz = cz + z_move[r_rand];
         if (nx >= -(sizex/2) && nx < sizex/2 && nz >= -(sizez/2) && nz < sizez/2)
-        {
+        { 
             this.x = nx;
             this.z = nz;
            

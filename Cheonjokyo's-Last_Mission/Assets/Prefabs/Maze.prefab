@@ -50,9 +50,9 @@ MonoBehaviour:
     type: 3}
   itemPrefabs:
   - {fileID: 5390025390273861887, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}
-  - {fileID: 528531692103911561, guid: f80dfe196ca69064094964d2f8127200, type: 3}
-  - {fileID: 3905739047576303312, guid: 2b8009d20b4e6da4dabd63833280051f, type: 3}
-  alienPrefab: {fileID: 7135371670919506384, guid: 53cb76f9317134146b4aa7aa87577ca9,
+  - {fileID: 5390025390273861887, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}
+  - {fileID: 5390025390273861887, guid: 86e530843d2f6c243ab78589e27aa9e8, type: 3}
+  alienPrefab: {fileID: 3621774443197045447, guid: e5836d050fdb354479bcd0d285bf2f22,
     type: 3}
   cellPrefab: {fileID: 11400000, guid: 8cc5710f710a24360a566370d7049cf8, type: 3}
   generationStepDelay: 0.01
