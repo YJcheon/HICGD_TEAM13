@@ -7,20 +7,17 @@ public class Maze : MonoBehaviour {
 	public IntVector2 size;
 
     public HyperCore coreprefab;
-    public HyperCore coreInstance;
-
-    public Alien alienprefab;
-    public Alien alienInstance1;
-    public Alien alienInstance2;
-
-    public MazeCell cellPrefab;
+    private HyperCore coreInstance;
 
     public Item[] itemPrefabs;
+    private List<Item> itemInstances = new List<Item>();
 
+    public Alien alienPrefab;
+    private List<Alien> alienInstances = new List<Alien>();
+
+    public MazeCell cellPrefab;
     public float generationStepDelay;
-
 	public MazePassage passagePrefab;
-
 	public MazeDoor doorPrefab;
 
 	[Range(0f, 1f)]
@@ -86,41 +83,33 @@ public class Maze : MonoBehaviour {
             int itemIndex = Random.Range(0, itemPrefabs.Length);
             Item itemPrefab = itemPrefabs[itemIndex];
             Item itemInstance = Instantiate(itemPrefab, new Vector3(x - size.x * 0.5f + 0.5f, 0, z - size.z * 0.5f + 0.5f), Quaternion.identity) as Item;
+            itemInstances.Add(itemInstance);
         }
 
-        IntVector2 aliencor;
-        while (true)
+        
+        
+        for (int aIdx = 0; aIdx < 2; aIdx++)
         {
-            IntVector2 cor = RandomCoordinates;
-            if (Coordchecking(cor.x, cor.z) == true) {
-                checkcoord checkcoord = new checkcoord();
-                checkcoord.x = cor.x;
-                checkcoord.z = cor.z;
-                checkcoordlist.Add(checkcoord);
-                aliencor = cor;
-                break;
-            }
-        }
-        alienInstance1 = Instantiate(alienprefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
-        alienInstance1.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
-        alienInstance1.SetSize(size.x, size.z);
-
-        while (true)
-        {
-            IntVector2 cor = RandomCoordinates;
-            if (Coordchecking(cor.x, cor.z) == true)
+            IntVector2 aliencor;
+            while (true)
             {
-                checkcoord checkcoord = new checkcoord();
-                checkcoord.x = cor.x;
-                checkcoord.z = cor.z;
-                checkcoordlist.Add(checkcoord);
-                aliencor = cor;
-                break;
+                IntVector2 cor = RandomCoordinates;
+                if (Coordchecking(cor.x, cor.z) == true)
+                {
+                    checkcoord checkcoord = new checkcoord();
+                    checkcoord.x = cor.x;
+                    checkcoord.z = cor.z;
+                    checkcoordlist.Add(checkcoord);
+                    aliencor = cor;
+                    break;
+                }
             }
+
+            Alien alienInstance = Instantiate(alienPrefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
+            alienInstance.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
+            alienInstances.Add(alienInstance);
         }
-        alienInstance2 = Instantiate(alienprefab, new Vector3(aliencor.x - size.x * 0.5f + 0.5f, 0, aliencor.z - size.z * 0.5f + 0.5f), Quaternion.identity) as Alien;
-        alienInstance2.SetLocation(aliencor.x - size.x * 0.5f + 0.5f, aliencor.z - size.z * 0.5f + 0.5f);
-        alienInstance2.SetSize(size.x, size.z);
+
         IntVector2 cor_result;
         while (true) {
             IntVector2 cor = RandomCoordinates;
@@ -130,6 +119,7 @@ public class Maze : MonoBehaviour {
                 break;
             }
         }
+
         coreInstance = Instantiate(coreprefab, new Vector3(cor_result.x - size.x * 0.5f + 0.5f, 0, cor_result.z - size.z * 0.5f + 0.5f),Quaternion.identity) as HyperCore;
 	}
 
@@ -225,4 +215,8 @@ public class Maze : MonoBehaviour {
 		rooms.Add(newRoom);
 		return newRoom;
 	}
+
+    public List<Item> Items {  get { return itemInstances;  } }
+    public List<Alien> Aliens {  get { return alienInstances;  } }
+    public HyperCore HyperCore {  get { return coreInstance; } }
 }

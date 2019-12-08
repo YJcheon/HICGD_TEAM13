@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthPointGetter : MonoBehaviour
 {
     private GameManager manager;
-    private Text text;
+    public SimpleHealthBar healthBar;
     private double HP;
 
     // Update is called once per frame
@@ -14,12 +14,21 @@ public class HealthPointGetter : MonoBehaviour
     {
         GameObject managerObject = GameObject.FindWithTag("GameController");
         manager = managerObject.GetComponent<GameManager>();
-        text = GetComponent<Text>();
     }
 
     void Update()
     {
         HP = manager.player.HP;
-        text.text = string.Format("{0:00.00}", HP);
+
+        float maxHp = HP > manager.player.initialHealthPoint
+                        ? (float) HP
+                        : (float) manager.player.initialHealthPoint;
+        float currentHp = (float) HP;
+
+        healthBar.UpdateBar(currentHp, maxHp);
+        if (currentHp / maxHp < 0.3)
+        {
+            healthBar.UpdateColor(new Color(255, 0, 0));
+        }
     }
 }
