@@ -25,34 +25,4 @@ public class ItemTrigger : MonoBehaviour
             }
         }
     }
-
-    private IEnumerator doPurification()
-    {
-        Debug.Log("Purification 획득.");
-        manager.timer.increase(5.0f);
-        yield return new WaitForSeconds(0.01f);
-        Destroy(this.gameObject);
-    }
-
-    private IEnumerator doBandage()
-    {
-        Debug.Log("Bandage 획득.");
-        manager.player.increaseHealthPoint(3);
-        Debug.Log(manager.player.HP);
-        yield return new WaitForSeconds(0.01f);
-        Destroy(this.gameObject);
-    }
-
-    private IEnumerator doHint(float seconds)
-    { 
-        Debug.Log("Hint 획득.");
-        Camera.main.clearFlags = CameraClearFlags.Skybox;
-        Camera.main.rect = new Rect(0f, 0f, 1f, 1f);
-        yield return new WaitForSeconds(seconds);
-        Camera.main.clearFlags = CameraClearFlags.Depth;
-        Camera.main.rect = new Rect(0f, 0f, 0.5f, 0.5f);
-        yield return new WaitForSeconds(0.01f);
-        Debug.Log("Finish. ShowTopView");
-        Destroy(this.gameObject);
-    }
 }
