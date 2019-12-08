@@ -6,8 +6,9 @@ public class BandageItem : Item
 {
     public override IEnumerator effects(GameManager manager)
     {
-        Debug.Log("Purification 획득.");
-        manager.timer.increase(5.0f);
+        Debug.Log("Bandage 획득.");
+        manager.player.increaseHealthPoint(10);
+        Debug.Log(manager.player.HP);
         yield return new WaitForSeconds(0.01f);
         Destroy(this.gameObject);
     }
